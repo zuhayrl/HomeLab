@@ -6,11 +6,11 @@
 
 ### Installation
 
-Run command prompt or powershell in administrator mode. Then type in the following command:
-``` wsl --install ```
+Run the command prompt or powershell in administrator mode. Then type in the following command:
+``` 
+wsl --install
+```
 
-## Setting up a raspberry Pi
+## Setting Up a Samba Server on your Pi
 
-### SSHing into your Pi
 
-### Setting Up a Samba Server on your Pi
