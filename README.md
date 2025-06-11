@@ -99,7 +99,7 @@ Run the following to install Pi Connect:
 ```
 sudo apt install rpi-connect
 ```
-Alternatively, run the following command on your Raspberry Pi to install Connect Lite (Shell only):
+Alternatively, run the following command to install Connect Lite (Shell only):
 ```
 sudo apt install rpi-connect-lite
 ```
@@ -107,5 +107,13 @@ After installation, use the rpi-connect command line interface to start Connect 
 ```
 rpi-connect on
 ```
-
+Use the following command to generate a link that will connect your device with your Connect account:
+```
+rpi-connect signin
+```
+This command should output something like the following:
+```
+Complete sign in by visiting https://connect.raspberrypi.com/verify/XXXX-XXXX
+```
+Visit the verification URL on any device and sign in with your Raspberry Pi ID to link your device with your Connect account.
 
