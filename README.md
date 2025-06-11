@@ -43,15 +43,9 @@ public=no
 ```
 
 `[pishare]` : The name of the share. This is what shows up on the network when browsing shared folders.
-
 `path = /home/username/shared` : The actual location of the shared folder on the Raspberry Pi.
-
 `writeable = yes` : Allows users to create, modify, or delete files within the shared folder.
-
 `browseable = yes` : Makes the share visible when browsing the network.
-
 `create mask = 0777` : Sets full permissions (read, write, execute) for all newly created files in the shared folder.
-
 `directory mask = 0777` : Sets full permissions for newly created directories.
-
 `public = no` : Disables guest access — only authenticated users can access the share.
