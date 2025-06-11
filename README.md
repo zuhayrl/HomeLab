@@ -84,4 +84,6 @@ This will by default install Ubuntu. If you wish to choose another distro then r
 7. Connect to the server on your device:
   Go to File Explorer > Computer > Map network drive
   Input drive location/name: `\\hostname\sharename`
+  For example using my local IP address and the share name from step 4 (the text between the [] ): `\\192.168.1.100\pishare`
+  
   
