@@ -88,4 +88,24 @@ This will by default install Ubuntu. If you wish to choose another distro then r
   
   For example using my local IP address and the share name from step 4 (the text between the [] ): `\\192.168.1.100\pishare`
   
-  
+## Raspberry Pi Connect
+### Install
+First update the Pi
+```
+sudo apt update
+sudo apt full-upgrade
+```
+Run the following to install Pi Connect:
+```
+sudo apt install rpi-connect
+```
+Alternatively, run the following command on your Raspberry Pi to install Connect Lite (Shell only):
+```
+sudo apt install rpi-connect-lite
+```
+After installation, use the rpi-connect command line interface to start Connect for your current user:
+```
+rpi-connect on
+```
+
+
