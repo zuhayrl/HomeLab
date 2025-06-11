@@ -13,26 +13,26 @@ This will by default install Ubuntu. If you wish to choose another distro then r
 
 ## Setting Up a Samba Server on your Pi
 
-First update your Pi:
+1. First update your Pi:
 ```
 sudo apt-get update
 sudo apt-get upgrade
 ```
 
-Then install the samba package:
+2. Then install the samba package:
 ```
 sudo apt-get install samba samba-common-bin
 ```
 
-Now you need to choose the folder you would like to share:
-1. Create a new folder:
+3. Now you need to choose the folder you would like to share:
+- Create a new folder:
 ```
 mkdir /home/username/shared
 ```
-2. Choose an existing folder:
+- Choose an existing folder:
 (I like to set my entire drive as the folder so that i can easily access any files from my main pc)
 
-Next we need to configure the samba config file `smb.conf` to handle access:
+4. Next we need to configure the samba config file `smb.conf` to handle access:
 ```
 [pishare]
 path = /home/username/shared
