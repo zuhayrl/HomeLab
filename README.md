@@ -1,15 +1,18 @@
 # HomeLab
-
+**Table of Contents:**
+* [Setting up WSL](##Setting-up-WSL)
+* [Setting Up a Samba Server on your Pi](##Setting-Up-a-Samba-Server-on-your-Pi)
+* [Raspberry Pi Connect](##Raspberry-Pi-Connect)
 ---
 ## Setting up WSL
 
-**WSL - Windows Subsystem for Linux is a built in linux terminal for windows.**
+  **WSL - Windows Subsystem for Linux is a built in linux terminal for windows.**
 
-Run the command prompt or powershell in administrator mode. Then type in the following command:
-``` 
-wsl --install
-```
-This will by default install Ubuntu. If you wish to choose another distro then run `wsl --list --online` to see a list of available distros and run `wsl --install -d <DistroName>` to install a distro.
+  Run the command prompt or powershell in administrator mode. Then type in the following command:
+  ``` 
+  wsl --install
+  ```
+  This will by default install Ubuntu. If you wish to choose another distro then run `wsl --list --online` to see a list of available distros and   run `wsl --install -d <DistroName>` to install a distro.
 
 ---
 ## Setting Up a Samba Server on your Pi
@@ -89,37 +92,38 @@ This will by default install Ubuntu. If you wish to choose another distro then r
   
   For example using my local IP address and the share name from step 4 (the text between the [] ): `\\192.168.1.100\pishare`
 
+
 ---
 ## Raspberry Pi Connect
-### Install
-First update the Pi
-```
-sudo apt update
-sudo apt full-upgrade
-```
-Run the following to install Pi Connect:
-```
-sudo apt install rpi-connect
-```
-Alternatively, run the following command to install Connect Lite (Shell only):
-```
-sudo apt install rpi-connect-lite
-```
-After installation, use the rpi-connect command line interface to start Connect for your current user:
-```
-rpi-connect on
-```
-Use the following command to generate a link that will connect your device with your Connect account:
-```
-rpi-connect signin
-```
-This command should output something like the following:
-```
-Complete sign in by visiting https://connect.raspberrypi.com/verify/XXXX-XXXX
-```
-Visit the verification URL on any device and sign in with your Raspberry Pi ID to link your device with your Connect account.
-
-To turn off Pi Connect:
-```
-rpi-connect off
-```
+  ### Install
+  First update the Pi
+  ```
+  sudo apt update
+  sudo apt full-upgrade
+  ```
+  Run the following to install Pi Connect:
+  ```
+  sudo apt install rpi-connect
+  ```
+  Alternatively, run the following command to install Connect Lite (Shell only):
+  ```
+  sudo apt install rpi-connect-lite
+  ```
+  After installation, use the rpi-connect command line interface to start Connect for your current user:
+  ```
+  rpi-connect on
+  ```
+  Use the following command to generate a link that will connect your device with your Connect account:
+  ```
+  rpi-connect signin
+  ```
+  This command should output something like the following:
+  ```
+  Complete sign in by visiting https://connect.raspberrypi.com/verify/XXXX-XXXX
+  ```
+  Visit the verification URL on any device and sign in with your Raspberry Pi ID to link your device with your Connect account.
+  
+  To turn off Pi Connect:
+  ```
+  rpi-connect off
+  ```
