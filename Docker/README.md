@@ -24,7 +24,7 @@ Docker is a tool for building, running, and sharing containerized applications. 
 
 ---
 # Why Use Docker?
-  ## 1. **"It works on my machine" — Fixed**
+  ## 1. "It works on my machine" — Fixed
   Docker ensures your app runs **the same** everywhere:
   - On your laptop
   - On a teammate’s machine
@@ -32,7 +32,7 @@ Docker is a tool for building, running, and sharing containerized applications. 
   - In production
   - In the cloud
   
-  ## 2. **Simplified Setup**
+  ## 2. Simplified Setup
   No more complex install instructions. Your project setup becomes:
   ```bash
   docker build .
@@ -40,40 +40,40 @@ Docker is a tool for building, running, and sharing containerized applications. 
   ```
   No need to install Python, Node.js, or databases locally — Docker handles that.
   
-  ## 3. **Lightweight and Fast**
+  ## 3. Lightweight and Fast
   - Containers boot in seconds
   - Use far fewer resources than full virtual machines
   - You can run multiple containers in parallel easily
   
-  ## 4. **Project isolation**
+  ## 4. Project isolation
   Each container:
   - Has its own runtime, dependencies, and settings
   - Avoids conflicts between projects (e.g., different Python versions)
   
-  ## 5. **Easy to deploy anywhere**
+  ## 5. Easy to deploy anywhere
   Ship the same Docker image:
   - To teammates
   - In CI/CD pipelines
   - To production or cloud servers
   No more "it broke in prod" surprises.
   
-  ## 6. **Microservices made easy**
+  ## 6. Microservices made easy
   Break your app into multiple services (API, frontend, DB) and run each in its own container.
 
 ---
   # Docker Tutorial
-  ## Part 1. **Run Your First Container**
-  ### **Check if Docker is Installed**
+  ## Part 1. Run Your First Container
+  ### Check if Docker is Installed
   ```bash
   docker --version
   ```
   
-  ### **Run a Test Container**
+  ### Run a Test Container
   ```bash
   docker run hello-world
   ```
   
-  ## Part 2. **Dockerise a Simple Python Project**
+  ## Part 2. Dockerise a Simple Python Project
   ### 1. Set up the project
   ```bash
   mkdir docker-tutorial
@@ -111,7 +111,7 @@ Docker is a tool for building, running, and sharing containerized applications. 
   Hello from inside the Docker container!
   ```
   
-  ## Part 3. **Dockerise a Flask App**
+  ## Part 3. Dockerise a Flask App
   ### 1. Create `requirements.txt`
   ```txt
   flask
@@ -158,7 +158,7 @@ Docker is a tool for building, running, and sharing containerized applications. 
   Hello from Flask in Docker!
   ```
   
-  ## Part 4. **Intercative Applications**
+  ## Part 4. Intercative Applications
   Say you would like to pass input into your application - this would be an **interactive** application.
   
   **Example: `app.py`:**
@@ -225,7 +225,7 @@ Docker is a tool for building, running, and sharing containerized applications. 
   CMD ["python", "app.py"]
   ```
   
-  ## **Breakdown**
+  ## Breakdown
   | Line                  | What It Does                                                |
   | --------------------- | ----------------------------------------------------------- |
   | `FROM python:3.9`     | Sets the base image (like the OS + Python installed)        |
