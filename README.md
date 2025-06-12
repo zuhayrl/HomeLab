@@ -1,11 +1,11 @@
 # HomeLab
 **Table of Contents:**
 
-* [Setting up WSL](##Setting-up-WSL)
-* [Setting Up a Samba Server on your Pi](##Setting-Up-a-Samba-Server-on-your-Pi)
+* [Setting up WSL](#Setting-up-WSL)
+* [Setting Up a Samba Server on your Pi](#Setting-Up-a-Samba-Server-on-your-Pi)
 * [Raspberry Pi Connect](#Raspberry-Pi-Connect)
 ---
-## Setting up WSL
+# Setting up WSL
 
   **WSL - Windows Subsystem for Linux is a built in linux terminal for windows.**
 
@@ -16,7 +16,7 @@
   This will by default install Ubuntu. If you wish to choose another distro then run `wsl --list --online` to see a list of available distros and   run `wsl --install -d <DistroName>` to install a distro.
 
 ---
-## Setting Up a Samba Server on your Pi
+# Setting Up a Samba Server on your Pi
 
 1. **First update your Pi:**
   ```
@@ -96,7 +96,7 @@
 
 ---
 # Raspberry Pi Connect
-  ### Install
+  ## Install
   First update the Pi
   ```
   sudo apt update
