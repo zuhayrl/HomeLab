@@ -57,7 +57,7 @@ No more "it broke in prod" surprises.
 Break your app into multiple services (API, frontend, DB) and run each in its own container.
 
 ## Tutorial
-### 1. **Run Your First Container**
+### Part 1. **Run Your First Container**
 #### **Check if Docker is Installed**
 ```bash
 docker --version
@@ -68,7 +68,7 @@ docker --version
 docker run hello-world
 ```
 
-### 2. **Dockerise a Simple Python Project**
+### Part 2. **Dockerise a Simple Python Project**
 #### 1. Set up the project
 ```bash
 mkdir docker-tutorial
@@ -106,7 +106,7 @@ You should see:
 Hello from inside the Docker container!
 ```
 
-### 3. **Dockerise a Flask App**
+### Part 3. **Dockerise a Flask App**
 #### 1. Create `requirements.txt`
 ```txt
 flask
@@ -152,3 +152,98 @@ You should see:
 ```txt
 Hello from Flask in Docker!
 ```
+
+### Part 4. **Intercative Applications**
+Say you would like to pass input into your application - this would be an **interactive** application.
+
+**Example: `app.py`:**
+```python
+x = input("Enter text: ")
+print("You entered:", x)
+```
+**Example `Dockerfile`:**
+```bash
+FROM python:3.9
+
+WORKDIR /app
+
+COPY . .
+
+CMD ["python", "app.py"]
+```
+**Build the docker image:**
+```bash
+docker build -t input-example .
+```
+**Running the docker image (IMPORTNAT):**
+
+To make input() work, you must run Docker with:
+- -i: keep STDIN open
+- -t: allocate a pseudo-TTY (gives you the terminal interface)
+ 
+So use:
+```
+docker run -it input-example
+```
+
+## Useful Docker Commands
+```bash
+docker ps             # Show running containers
+docker ps -a          # Show all containers (including stopped)
+docker images         # List all images
+docker stop <id>      # Stop a container
+docker rm <id>        # Remove a container
+docker rmi <image>    # Remove an image
+```
+
+## Dockerfile
+A `dockerfile` is a plain text file (i.e. no extension) that contains instructions to build a docker image.  
+Example:
+```
+# 1. Base image
+FROM python:3.9
+
+# 2. Set working directory inside the container
+WORKDIR /app
+
+# 3. Copy project files into the container
+COPY . /app
+
+# 4. Install dependencies
+RUN pip install -r requirements.txt
+
+# 5. Expose the port your app runs on (optional, for web apps)
+EXPOSE 5000
+
+# 6. Command to run your app
+CMD ["python", "app.py"]
+```
+
+### **Breakdown**
+| Line                  | What It Does                                                |
+| --------------------- | ----------------------------------------------------------- |
+| `FROM python:3.9`     | Sets the base image (like the OS + Python installed)        |
+| `WORKDIR /app`        | Creates and switches to `/app` inside the container         |
+| `COPY . /app`         | Copies all local files into the container's `/app` folder   |
+| `RUN pip install ...` | Runs a command (e.g., installs Python packages)             |
+| `EXPOSE 5000`         | Documents the port the app listens on (useful for web apps) |
+| `CMD [...]`           | The default command that runs when the container starts     |
+
+### Rules and Tips
+- Every Dockerfile must start with FROM — this sets the base image.
+
+- Each instruction creates a new layer — Docker caches these layers to speed up builds.
+
+- Use COPY (or ADD) to bring in your code or files.
+
+- Use RUN for any commands that should be executed when building the image (e.g., installing packages).
+
+- Use CMD to set the command that runs when you run the container.
+
+You can also use:
+
+- ENV to set environment variables
+
+- ARG for build-time variables
+
+- ENTRYPOINT to define how a container starts (often combined with CMD)
