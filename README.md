@@ -62,7 +62,7 @@
   `public = no` : Disables guest access — only authenticated users can access the share.
 
 5. **Set a username and password:**
-	Type your username in place of `<username>`
+Type your username in place of `<username>`
   ```
   sudo smbpasswd -a <username>
   ```
