@@ -7,7 +7,7 @@ Docker is a tool for building, running, and sharing containerized applications. 
 * [What Are Containers?](#What-Are-Containers?)
 * [Why Use Docker?](#Why-Use-Docker?)
 * [Docker Tutorial](#Docker-Tutorial)
-* [#Dockerfile](#Dockerfile)
+* [Dockerfile](#Dockerfile)
 
 ---
 # What Are Containers?
