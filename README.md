@@ -1,8 +1,9 @@
 # HomeLab
 **Table of Contents:**
+
 * [Setting up WSL](##Setting-up-WSL)
 * [Setting Up a Samba Server on your Pi](##Setting-Up-a-Samba-Server-on-your-Pi)
-* [Raspberry Pi Connect](##Raspberry-Pi-Connect)
+* [Raspberry Pi Connect](#Raspberry-Pi-Connect)
 ---
 ## Setting up WSL
 
@@ -94,7 +95,7 @@
 
 
 ---
-## Raspberry Pi Connect
+# Raspberry Pi Connect
   ### Install
   First update the Pi
   ```
