@@ -1,5 +1,5 @@
 # HomeLab
-**Table of Contents:**
+## Table of Contents:
 
 * [Setting up WSL](#Setting-up-WSL)
 * [Setting Up a Samba Server on your Pi](#Setting-Up-a-Samba-Server-on-your-Pi)
