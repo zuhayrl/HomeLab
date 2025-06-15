@@ -1,2 +1,0 @@
-# Samba
-## Table of Contents
