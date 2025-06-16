@@ -7,7 +7,7 @@
 
 # What is Docker Compose?
 
-Docker Compose is a tool that lets you **define and run multi-container Docker applications** using a single file: `docker-compose.yml`.
+Docker Compose is a tool that lets you **define and run multi-container Docker applications** using a single file: `compose.yaml`.
 
 Instead of starting each container manually, Compose lets you:
 
@@ -22,7 +22,7 @@ Instead of starting each container manually, Compose lets you:
 | Feature | Benefit |
 |--------|---------|
 | Single config file | Define web, database, cache, etc. together |
-| Easy setup | Just run `docker-compose up` |
+| Easy setup | Just run `docker compose up` |
 | Scalable | Run multiple replicas with `--scale` |
 | Reproducible | Works the same across machines and environments |
 | Manages networks/volumes | Built-in support without manual setup |
@@ -51,7 +51,7 @@ docker-compose-tutorial/
 │ └── requirements.txt  
 │  
 ├── Dockerfile  
-└── docker-compose.yml  
+└── compose.yaml  
 
 ---
 
@@ -92,7 +92,7 @@ CMD ["python", "app.py"]
 
 ```
 
-### Step 4. Docker Compose File: `docker-compose.yml`
+### Step 4. Docker Compose File: `compose.yaml`
 ```yaml
 version: '3.8'
 
@@ -114,9 +114,9 @@ services:
 ## Run the App
 
 ### Step 1: Build and Start Everything
-From the root folder (where `docker-compose.yml` is), run:
+From the root folder (where `compose.yaml` is), run:
 ```bash
-docker-compose up --build
+docker compose up
 ```
 This will:
 - Build the Flask image from the Dockerfile
@@ -131,7 +131,7 @@ Each refresh will increment the Redis counter.
 Use `Ctrl+C` to stop.
 Then clean up everything with:
 ```bash
-docker-compose down
+docker compose down
 ```
 
 ---
@@ -139,7 +139,7 @@ docker-compose down
 ## Making Changes
 If you modify any Python code or dependencies:
 ```bash
-docker-compose up --build
+docker compose up --build
 ```
 This forces a rebuild.
 
@@ -148,7 +148,7 @@ This forces a rebuild.
 ## Scaling with Multiple Containers
 Want to run 3 instances of the Flask app (load-balanced):
 ```bash
-docker-compose up --scale web=3
+docker compose up --scale web=3
 ```
 You’ll still see a single counter, since all containers talk to the same Redis service.
 
