@@ -1,9 +1,9 @@
 # Docker Compose
 ## Table of Contents
-[What is Docker Compose?](#What-is-Docker-Compose?)
-[Why Use Docker Compose?](#Why-Use-Docker-Compose?)
-[Tutorial Project](#Tutorial-Project)
-[Summary of Docker Compose Commands](#Summary-of-Docker-Compose-Commands)
+- [What is Docker Compose?](#What-is-Docker-Compose?)
+- [Why Use Docker Compose?](#Why-Use-Docker-Compose?)
+- [Tutorial Project](#Tutorial-Project)
+- [Summary of Docker Compose Commands](#Summary-of-Docker-Compose-Commands)
 
 # What is Docker Compose?
 
