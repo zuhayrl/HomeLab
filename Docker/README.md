@@ -85,7 +85,7 @@ Docker is a tool for building, running, and sharing containerized applications. 
   ```
   ### 3. Create a `Dockerfile`
   Yes, theres no file extension lmao
-  ```bash
+  ```Dockerfile
   # Use the official Python image
   FROM python:3.9
   
@@ -107,7 +107,7 @@ Docker is a tool for building, running, and sharing containerized applications. 
   docker run my-python-app
   ```
   You should see:
-  ```markdown
+  ```txt
   Hello from inside the Docker container!
   ```
   
@@ -130,7 +130,7 @@ Docker is a tool for building, running, and sharing containerized applications. 
       app.run(debug=True, host='0.0.0.0')
   ```
   ### 3. Create `Dockerfile`
-  ```bash
+  ```Dockerfile
   FROM python:3.9
   
   WORKDIR /app
@@ -167,7 +167,7 @@ Docker is a tool for building, running, and sharing containerized applications. 
   print("You entered:", x)
   ```
   **Example `Dockerfile`:**
-  ```bash
+  ```Dockerfile
   FROM python:3.9
   
   WORKDIR /app
@@ -187,7 +187,7 @@ Docker is a tool for building, running, and sharing containerized applications. 
   - -t: allocate a pseudo-TTY (gives you the terminal interface)
    
   So use:
-  ```
+  ```bash
   docker run -it input-example
   ```
   
@@ -205,7 +205,7 @@ Docker is a tool for building, running, and sharing containerized applications. 
 # Dockerfile
   A `dockerfile` is a plain text file (i.e. no extension) that contains instructions to build a docker image.  
   ## Example:
-  ```
+  ```Dockerfile
   # 1. Base image
   FROM python:3.9
   
