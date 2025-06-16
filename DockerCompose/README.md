@@ -40,15 +40,15 @@ You’ll build a small web app that:
 
 ---
 
-## 🗂 Project Structure
-docker-compose-tutorial/
-│
-├── app/
-│ ├── app.py
-│ └── requirements.txt
-│
-├── Dockerfile
-└── docker-compose.yml
+## Project Structure
+docker-compose-tutorial/  
+│  
+├── app/  
+│ ├── app.py  
+│ └── requirements.txt  
+│  
+├── Dockerfile  
+└── docker-compose.yml  
 
 ---
 
