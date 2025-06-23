@@ -466,5 +466,194 @@ grep "ERROR" log.txt | wc -l   # Count error lines
 find . -type f | wc -l         # Count number of files
 ```
 
+---
+
+# `cat` CHEAT SHEET (Concatenate and Display Files)
+
+### 📌 Basic Usage
+
+```bash
+cat file.txt                   # Print contents to stdout
+cat file1.txt file2.txt        # Concatenate and print both files
+```
+
+### 📌 Redirect Output
+
+```bash
+cat file1.txt > combined.txt          # Overwrite combined.txt
+cat file1.txt >> combined.txt         # Append to combined.txt
+```
+
+### 📌 Create a New File via Terminal
+
+```bash
+cat > newfile.txt
+# Type lines, then Ctrl+D to save
+```
+
+### 📌 Concatenate Files
+
+```bash
+cat header.txt body.txt footer.txt > full.txt
+```
+
+---
+
+### 📌 Numbering Lines
+
+```bash
+cat -n file.txt                       # Number all lines
+cat -b file.txt                       # Number non-blank lines
+```
+
+### 📌 Show Hidden Characters
+
+```bash
+cat -T file.txt                       # Show TABs as ^I
+cat -E file.txt                       # Show line ends as $
+```
+
+### 📌 Combine Flags
+
+```bash
+cat -n -T file.txt                    # Number lines, show TABs
+```
+
+---
+
+### 📌 Practical Workflows
+
+| Task                           | Command                                  |               |
+| ------------------------------ | ---------------------------------------- | ------------- |
+| View contents of a config      | `cat ~/.bashrc`                          |               |
+| Combine logs                   | `cat part1.log part2.log > full.log`     |               |
+| Add newlines between two files | `cat file1 <(echo '') file2` (bash only) |               |
+| Check file ends with newline   | \`tail -1 file.txt                       | od -c\`       |
+| Preview a binary (partial)     | \`cat binaryfile                         | head -c 100\` |
+
+---
+
+### ⚠️ Caution: Use with `sudo`
+
+```bash
+# This won't work as intended:
+sudo cat file.txt > /root/output.txt
+
+# Instead, use:
+sudo sh -c 'cat file.txt > /root/output.txt'
+```
+
+---
+
+
+# `tac` CHEAT SHEET (Reverse `cat` — Print Lines in Reverse)
+
+### 📌 Basic Usage
+
+```bash
+tac file.txt                      # Print file from bottom to top
+```
+
+### 📌 Combine with Other Tools
+
+```bash
+tac file.txt | grep "ERROR"       # Search latest logs first
+tac file.txt | head -n 10         # Last 10 lines in reverse
+```
+
+### 📌 Reverse multiple files
+
+```bash
+tac file1.txt file2.txt
+```
+
+---
+
+# 📖 `more` CHEAT SHEET (Paginated File Viewer – Older, Simpler)
+
+### 📌 Basic Usage
+
+```bash
+more file.txt
+```
+
+### 📌 Keyboard Shortcuts (inside `more`)
+
+| Key        | Action          |
+| ---------- | --------------- |
+| SPACE      | Next page       |
+| ENTER      | Next line       |
+| `q`        | Quit            |
+| `/pattern` | Search forward  |
+| `n` / `N`  | Next/prev match |
+
+### 📌 Other Tips
+
+```bash
+more +20 file.txt         # Start from line 20
+command | more            # Page output of any command
+```
+
+---
+
+# 📚 `less` CHEAT SHEET (Enhanced Pager – More Powerful than `more`)
+
+### 📌 Basic Usage
+
+```bash
+less file.txt
+```
+
+### 📌 Navigation
+
+| Key     | Action                  |
+| ------- | ----------------------- |
+| `j`/`k` | Scroll down/up one line |
+| `SPACE` | Scroll down one page    |
+| `b`     | Scroll up one page      |
+| `G`     | Go to end of file       |
+| `g`     | Go to top of file       |
+| `q`     | Quit                    |
+
+### 📌 Searching
+
+```bash
+/pattern         # Forward search
+?pattern         # Backward search
+n / N            # Next/previous match
+```
+
+### 📌 View compressed files directly
+
+```bash
+less file.gz
+```
+
+### 📌 Live view of logs (similar to tail -f)
+
+```bash
+less +F log.txt     # Follow mode, press Ctrl+C to stop following
+```
+
+### 📌 Combine with Commands
+
+```bash
+ps aux | less
+git log | less
+```
+
+---
+
+### 🔄 `cat` vs `tac` vs `more` vs `less`
+
+| Command | Direction    | Paging | Search  | Notes                        |
+| ------- | ------------ | ------ | ------- | ---------------------------- |
+| `cat`   | Top → bottom | ❌      | ❌       | Use for full file dumps      |
+| `tac`   | Bottom → top | ❌      | ❌       | Reverse line order           |
+| `more`  | Top → bottom | ✅      | Limited | Legacy pager, line-by-line   |
+| `less`  | Both         | ✅      | ✅       | Modern pager, scroll, search |
+
+
+
 
 
