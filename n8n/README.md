@@ -1,10 +1,23 @@
-# 🧠 n8n Installation Guide (Docker on Raspberry Pi)
+
+# n8n Installation Guide (Docker on Raspberry Pi)
+
+## Table of Contents
+
+1. [Which Method Should You Use?](#which-method-should-you-use)
+2. [Prerequisites](#prerequisites)
+3. [Method 1: docker run (Quick Start)](#method-1-docker-run-quick-start)
+4. [Method 2: docker-compose (Recommended)](#method-2-docker-compose-recommended)
+5. [Method 3: systemd Service (Advanced)](#method-3-systemd-service-advanced)
+6. [Access n8n Web UI](#access-n8n-web-ui)
+7. [Updating n8n](#updating-n8n)
+8. [Notes](#notes)
+
 
 This guide outlines three ways to install and run [n8n](https://n8n.io/) — a powerful workflow automation tool — on a Raspberry Pi using Docker. All methods work on Raspberry Pi models with a **64-bit OS** (e.g. Raspberry Pi OS 64-bit, Ubuntu Server 64-bit).
 
 ---
 
-## 🚦 Which Method Should You Use?
+## Which Method Should You Use?
 
 | Method             | Best For                                                                 | Auto Start on Boot | Persistent Config | Easy to Update |
 |--------------------|--------------------------------------------------------------------------|--------------------|-------------------|----------------|
@@ -14,7 +27,7 @@ This guide outlines three ways to install and run [n8n](https://n8n.io/) — a p
 
 ---
 
-## ✅ Prerequisites
+## Prerequisites
 
 1. Raspberry Pi with a **64-bit OS**
 2. Docker installed  
@@ -34,7 +47,7 @@ This guide outlines three ways to install and run [n8n](https://n8n.io/) — a p
 
 ---
 
-## ⚡ Method 1: `docker run` (Quick Start)
+## Method 1: `docker run` (Quick Start)
 
 Run the following command to start n8n interactively:
 
@@ -56,11 +69,11 @@ docker run -d \
   n8nio/n8n
 ```
 
-> 📁 Your workflows will be stored in `~/.n8n`.
+Your workflows will be stored in `~/.n8n`.
 
 ---
 
-## 🧱 Method 2: `docker-compose` (Recommended)
+## Method 2: `docker-compose` (Recommended)
 
 Create a `docker-compose.yml` file:
 
@@ -81,7 +94,7 @@ services:
     volumes:
       - ~/.n8n:/home/node/.n8n
 ```
-> 🔐 Replace `your_secure_password` with something strong.
+Replace `your_secure_password` with something strong.
 
 Run:
 
@@ -97,7 +110,7 @@ docker-compose down
 
 ---
 
-## 🧰 Method 3: `systemd` Service (Advanced)
+## Method 3: `systemd` Service (Advanced)
 
 For full control of auto-start, logs, and crash recovery.
 
@@ -131,8 +144,8 @@ ExecStop=/usr/bin/docker stop n8n
 WantedBy=multi-user.target
 ```
 
-> Replace `/home/pi/.n8n` if your user directory differs.
-> Also replace `your_secure_password`.
+Replace `/home/pi/.n8n` if your user directory differs.
+Also replace `your_secure_password`.
 
 ---
 
@@ -155,7 +168,7 @@ journalctl -u n8n -f           # View logs live
 
 ---
 
-## 🌐 Access n8n Web UI
+## Access n8n Web UI
 
 Go to:
 **http\://\<raspberry\_pi\_ip>:5678**
@@ -164,7 +177,7 @@ If using auth, login with the credentials set in `N8N_BASIC_AUTH_USER` and `N8N_
 
 ---
 
-## 🛠️ Updating n8n
+## Updating n8n
 
 ```bash
 # Stop service or container
@@ -179,14 +192,9 @@ sudo systemctl start n8n       # or docker-compose up -d
 
 ---
 
-## 🧠 Notes
+## Notes
 
 * This guide assumes the use of a 64-bit OS. Run `uname -m` — you want to see `aarch64`, not `armv7l`.
 * The n8n image supports ARM architecture as of latest versions (source: [DockerHub](https://hub.docker.com/r/n8nio/n8n)).
 
 ---
-
-```
-
-Let me know if you want a version with `.env` support or Traefik/HTTPS setup for remote/public deployments.
-```
