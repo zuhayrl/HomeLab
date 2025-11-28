@@ -1,6 +1,8 @@
 Below is a **clear, beginner-friendly Tailscale tutorial specifically for a Fabric Minecraft server**.
 This works on **Windows or Linux**, needs **no port forwarding**, and is **free + safe**.
 
+Link to fabric server tutorial: https://wiki.fabricmc.net/install
+
 ---
 
 # 🧷 **Tailscale + Fabric Minecraft Server Tutorial**
