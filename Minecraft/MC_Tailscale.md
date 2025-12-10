@@ -218,4 +218,3 @@ If you want:
 * 🧩 Mod compatibility check (Waystones, JEI, etc.)
 
 Tell me your **OS + Minecraft version**, and I’ll tailor it exactly.
-
