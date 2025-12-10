@@ -1,4 +1,4 @@
-# Create a Minecraft Fabric Server
+# **Create a Minecraft Fabric Server**
 ## Install Fabric Server
 ### 1. Choose a directory
 Choose a directory in which you want to put your MC server. Once in this directory, download the fabric installer and run it here in server mode:
