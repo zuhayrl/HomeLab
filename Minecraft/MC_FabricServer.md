@@ -103,11 +103,15 @@ Create a `start_headless.sh`:
 ```bash
 #!/bin/bash
 
-screen -dmS minecraft bash -c 'while true; do
-    java -Xmx4G -Xms2G -jar fabric-server-launch.jar nogui
-    echo "Server crashed or stopped. Restarting in 5 seconds..."
-    sleep 5
-done'
+# One time start
+screen -dmS minecraft java -Xmx4G -Xms2G -jar fabric-server-launch.jar nogui
+
+# Persistent Server
+#screen -dmS minecraft bash -c 'while true; do
+#    java -Xmx4G -Xms2G -jar fabric-server-launch.jar nogui
+#    echo "Server crashed or stopped. Restarting in 5 seconds..."
+#    sleep 5
+#done'
 
 echo "Minecraft server started in screen session 'minecraft'"
 echo "Use 'screen -r minecraft' to attach to the console"
